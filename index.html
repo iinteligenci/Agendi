@@ -28,7 +28,7 @@
 </section><div class="foot">Beautycare · Cuidado, bem-estar e autoestima</div></main>
 <script>
 const defaults=[{name:"Buço",price:20,duration:15},{name:"Axilas",price:40,duration:20},{name:"Abdômen",price:45,duration:20},{name:"Meia perna",price:55,duration:30},{name:"Perna completa",price:80,duration:45},{name:"Virilha simples",price:60,duration:30},{name:"Virilha completa",price:80,duration:40},{name:"Massagem relaxante",price:120,duration:60},{name:"Drenagem linfática",price:140,duration:60}];
-const key="beautycare-agendi-settings-v1";let settings={services:defaults,hours:["09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],waNumber:""};let selected=0;
+const key="beautycare-agendi-settings-v1";let settings={services:defaults,hours:["09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],waNumber:"5527992468387"};let selected=0;
 try{const saved=JSON.parse(localStorage.getItem(key)||"null");if(saved)settings={...settings,...saved,services: saved.services||defaults}}catch(e){}
 const money=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});const el=id=>document.getElementById(id);
 function renderServices(){el("services").innerHTML=settings.services.map((s,i)=>'<button class="service '+(i===selected?'selected':'')+'" data-i="'+i+'"><span class="service-name">'+s.name+'</span><span class="service-meta"><span class="duration">Aprox. '+s.duration+' min</span><span class="price">'+money(Number(s.price))+'</span></span></button>').join("");document.querySelectorAll(".service").forEach(b=>b.onclick=()=>{selected=Number(b.dataset.i);renderServices();renderSummary()});renderSummary()}
