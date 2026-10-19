@@ -10,7 +10,7 @@ Protótipo web de agendamento para depilação, massagem relaxante e drenagem li
 - Deploy estático no GitHub Pages via GitHub Actions.
 
 ## Como publicar
-O workflow `.github/workflows/deploy.yml` publica o conteúdo deste repositório no GitHub Pages a cada push na branch `main`. Se o Pages não estiver configurado para usar GitHub Actions, selecione Settings → Pages → Build and deployment → GitHub Actions.
+O GitHub Pages está configurado para publicar diretamente a branch `main`, pasta `/(root)`. Em Settings → Pages → Build and deployment, mantenha a fonte como `Deploy from a branch`, branch `main` e pasta `/(root)`.
 
 ## Importante
 Este é um protótipo inicial. As configurações administrativas são salvas apenas no navegador utilizado; não existe banco de dados compartilhado, sincronização entre dispositivos, autenticação administrativa ou bloqueio real de horários. O formulário solicita uma data e hora desejadas, e a disponibilidade deve ser confirmada pelo estabelecimento. O WhatsApp abre com a mensagem preenchida, sem envio automático. Configure o número real do WhatsApp na Área administrativa antes de testar o fluxo.
