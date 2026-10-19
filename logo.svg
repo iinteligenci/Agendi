@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Monograma Beautycare">
-  <rect width="600" height="600" rx="300" fill="#c98282"/>
-  <circle cx="300" cy="300" r="266" fill="none" stroke="#f3d0c3" stroke-width="3"/>
-  <g fill="#f7e3da" font-family="Georgia, 'Times New Roman', serif" font-weight="400">
-    <text x="205" y="365" font-size="250">B</text>
-    <text x="300" y="405" font-size="225">C</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Beautycare">
+  <rect width="1024" height="1024" fill="#c98284"/>
+  <g fill="#f2d0c5" font-family="Bodoni MT, Didot, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="265" y="780" font-size="720" letter-spacing="-48">M</text>
+    <text x="360" y="780" font-size="720" letter-spacing="-28">A</text>
   </g>
-  <path d="M180 438 C245 466 355 466 420 438" fill="none" stroke="#f3d0c3" stroke-width="3" stroke-linecap="round"/>
+  <text x="340" y="368" transform="rotate(77 340 368)" fill="#f2d0c5" font-family="Bodoni MT, Didot, Georgia, 'Times New Roman', serif" font-size="50" letter-spacing="5">BEAUTYCARE</text>
 </svg>
