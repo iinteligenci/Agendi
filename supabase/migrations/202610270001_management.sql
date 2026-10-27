@@ -16,3 +16,6 @@ grant select, insert, update, delete on public.financial_entries to authenticate
 grant select, insert, update, delete on public.anamnesis to authenticated;
 alter table public.appointments add column if not exists internal_notes text;
 alter table public.appointments add column if not exists no_show_fee numeric(12,2) not null default 0;
+drop policy if exists "Authenticated staff manage appointments" on public.appointments;
+create policy "Authenticated staff manage appointments" on public.appointments for all to authenticated using (true) with check (true);
+grant select, insert, update, delete on public.appointments to authenticated;
