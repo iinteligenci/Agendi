@@ -1,0 +1,18 @@
+create extension if not exists pgcrypto;
+create table if not exists public.customers (id uuid primary key default gen_random_uuid(), full_name text not null, phone text not null, birthday date, email text, notes text, created_at timestamptz not null default now());
+create table if not exists public.financial_entries (id uuid primary key default gen_random_uuid(), entry_type text not null check (entry_type in ('income','expense')), amount numeric(12,2) not null check (amount > 0), category text not null default 'Outros', description text, entry_date date not null default current_date, created_at timestamptz not null default now());
+create table if not exists public.anamnesis (id uuid primary key default gen_random_uuid(), customer_id uuid not null references public.customers(id) on delete cascade, record_date date not null default current_date, allergies text, conditions text, notes text, consent boolean not null default false check (consent = true), created_at timestamptz not null default now());
+alter table public.customers enable row level security;
+alter table public.financial_entries enable row level security;
+alter table public.anamnesis enable row level security;
+drop policy if exists "Authenticated staff manage customers" on public.customers;
+create policy "Authenticated staff manage customers" on public.customers for all to authenticated using (true) with check (true);
+drop policy if exists "Authenticated staff manage finance" on public.financial_entries;
+create policy "Authenticated staff manage finance" on public.financial_entries for all to authenticated using (true) with check (true);
+drop policy if exists "Authenticated staff manage anamnesis" on public.anamnesis;
+create policy "Authenticated staff manage anamnesis" on public.anamnesis for all to authenticated using (true) with check (true);
+grant select, insert, update, delete on public.customers to authenticated;
+grant select, insert, update, delete on public.financial_entries to authenticated;
+grant select, insert, update, delete on public.anamnesis to authenticated;
+alter table public.appointments add column if not exists internal_notes text;
+alter table public.appointments add column if not exists no_show_fee numeric(12,2) not null default 0;
